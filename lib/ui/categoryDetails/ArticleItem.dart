@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../models/ArticleModel.dart';
+import '../../models/ArticlesResponse/Article.dart';
 
 class ArticleItem extends StatelessWidget {
-  final ArticleModel articleModel;
+  final Article articleModel;
   const ArticleItem({super.key,required this.articleModel});
 
   @override
@@ -13,7 +13,7 @@ class ArticleItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Image.network(
-          articleModel.image,
+          articleModel.urlToImage??"",
           fit: BoxFit.cover,
           height: 232.h,
           width: 390.w,
@@ -26,12 +26,12 @@ class ArticleItem extends StatelessWidget {
               Align(
                   alignment: Alignment.topLeft,
                   child: Text(
-                      articleModel.source,
+                      articleModel.source?.name??"",
                       style: Theme.of(context).textTheme.headlineSmall
 
                   )),
               Text(
-                  articleModel.title,
+                  articleModel.title??"",
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                   fontWeight: FontWeight.w500,
                   fontSize: 21.sp,
@@ -41,7 +41,7 @@ class ArticleItem extends StatelessWidget {
               Align(
                 alignment: Alignment.topRight,
                 child: Text(
-                  articleModel.date.toString(),
+                  articleModel.publishedAt.toString(),
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
               ),
