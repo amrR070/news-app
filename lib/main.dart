@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_app/style/app_style.dart';
+import 'package:new_app/ui/categoryDetails/NewsDetailsScreen.dart';
 import 'package:new_app/ui/home/home_screen.dart';
 import 'package:new_app/ui/splach/splash_screen.dart';
 
@@ -28,7 +29,8 @@ class MyApp extends StatelessWidget {
           initialRoute: HomeScreen.routeName,
           routes: {
             HomeScreen.routeName :(context) => HomeScreen(),
-            SplashScreen.routeName :(context) => SplashScreen()
+            SplashScreen.routeName :(context) => SplashScreen(),
+            NewsDetailsScreen.routeName :(context) => NewsDetailsScreen(),
           },
         );
       },
