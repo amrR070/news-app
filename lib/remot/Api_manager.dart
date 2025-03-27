@@ -37,4 +37,21 @@ class ApiManager{
 
 
   }
+  static Future<ArticlesResponse?> getSearchedArticles(String query) async {
+    //https://newsapi.org/v2/everything?apiKey=3a49385dfbd34b6fa177a876c2393d25&sources=fox-sports
+    try{
+      Uri url = Uri.https("newsapi.org","/v2/everything",{
+        "apikey":"3a49385dfbd34b6fa177a876c2393d25",
+        "q":query
+      });
+      var response = await http.get(url);
+      var json = jsonDecode(response.body);
+      var articlesResponse = ArticlesResponse.fromJson(json);
+      return articlesResponse;
+    }catch(error){
+      print(error);
+    }
+
+
+  }
 }

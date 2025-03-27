@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:new_app/ui/home/widgets/CustomSearchDelegate.dart';
 import 'package:new_app/ui/home/widgets/category_tab.dart';
 import 'package:new_app/ui/home/widgets/custom_drawer.dart';
 import 'package:new_app/ui/home/widgets/settings_tab.dart';
@@ -40,6 +42,18 @@ class _HomeScreenState extends State<HomeScreen> {
           title: Text(
             "News App",
           ),
+          // actions:[
+          //   IconButton(
+          //     onPressed:() => showSearch(
+          //         context: context,
+          //         delegate: CustomSearchDelegate()
+          //     ),
+          //     icon: Icon(
+          //         Icons.search,
+          //       size: 32.sp,
+          //     ),
+          //   )
+          // ]
         ),
         body: selectedWidget,
       ),
